@@ -1,4 +1,5 @@
 const gameBoard = document.querySelector("#game-board");
+const scoreBoard = document.querySelector("#score");
 
 let speed = 5;
 let snakeArr = [{ x: 19, y: 19 }];
@@ -6,9 +7,10 @@ let food = { x: 7, y: 5 };
 let velocity = { x: 0, y: 0 };
 let gameOver = false;
 let lastDrawTime = 0;
-const foodSound = new Audio('assets/food.mp3');
-const moveSound = new Audio('assets/move.mp3');
-const collideSound = new Audio('assets/gameover.mp3');
+let score = 0;
+const foodSound = new Audio("assets/food.mp3");
+const moveSound = new Audio("assets/move.mp3");
+const collideSound = new Audio("assets/gameover.mp3");
 
 function main(ctime) {
   window.requestAnimationFrame(main);
@@ -46,6 +48,7 @@ function drawGame() {
     moveSnake();
     drawSnake();
     drawFood();
+    updateScore();
     console.log(food.x, food.y);
   } else {
     let snake = document.querySelectorAll(".snake-part");
@@ -57,6 +60,11 @@ function drawGame() {
 
 function clearBoard() {
   gameBoard.innerHTML = "";
+}
+
+function updateScore() {
+  score = snakeArr.length - 1;
+  scoreBoard.innerText = `Score: ${score}`;
 }
 
 function drawFood() {
@@ -118,31 +126,34 @@ function hasEaten() {
 }
 
 document.addEventListener("keydown", (e) => {
-  moveSound.play();
   if (gameOver === true) {
     velocity.y = -1;
     gameOver = false;
   } else {
     switch (e.key) {
       case "ArrowUp":
+        moveSound.play();
         if (velocity.y != 1) {
           velocity.x = 0;
           velocity.y = -1;
         }
         break;
       case "ArrowDown":
+        moveSound.play();
         if (velocity.y != -1) {
           velocity.x = 0;
           velocity.y = 1;
         }
         break;
       case "ArrowLeft":
+        moveSound.play();
         if (velocity.x != 1) {
           velocity.x = -1;
           velocity.y = 0;
         }
         break;
       case "ArrowRight":
+        moveSound.play();
         if (velocity.x != -1) {
           velocity.x = 1;
           velocity.y = 0;
