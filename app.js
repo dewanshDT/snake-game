@@ -202,6 +202,7 @@ function handleTouchMove(evt) {
             }
         } else { 
             /* down swipe */
+            evt.preventDefault();
             gameOver = false;
             if (velocity.y != -1) {
               velocity.x = 0;
