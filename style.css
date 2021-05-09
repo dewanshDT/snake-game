@@ -186,7 +186,7 @@ body {
   }
 }
 
-@media (min-width: 100px) {
+@media (min-width: 1000px) {
   #game-board {
     width: 80vh;
     height: 80vh;
