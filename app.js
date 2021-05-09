@@ -147,7 +147,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 
-Touch controls
+
 function swipedetect(el, callback){
   
   var touchsurface = el,
