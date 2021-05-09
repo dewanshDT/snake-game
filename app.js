@@ -146,6 +146,8 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+
+// Touch controls
 document.addEventListener('touchstart', handleTouchStart, false);        
 document.addEventListener('touchmove', handleTouchMove, false);
 
@@ -177,26 +179,34 @@ function handleTouchMove(evt) {
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
         if ( xDiff > 0 ) {
             /* left swipe */ 
-            console.log("ArrowLeft");
-            velocity.x = -1;
-            velocity.y = 0;
+            gameOver = false;
+            if (velocity.x != 1) {
+              velocity.x = -1;
+              velocity.y = 0;
+            }
         } else {
             /* right swipe */
-            console.log("ArrowRight");
-            velocity.x = 1;
-            velocity.y = 0;
+            gameOver = false;
+            if (velocity.x != -1) {
+              velocity.x = 1;
+              velocity.y = 0;
+            }
         }                       
     } else {
         if ( yDiff > 0 ) {
             /* up swipe */ 
-            console.log("ArrowUp");
-            velocity.x = 0;
-            velocity.y = -1;
+            gameOver = false;
+            if (velocity.y != 1) {
+              velocity.x = 0;
+              velocity.y = -1;
+            }
         } else { 
             /* down swipe */
-            console.log("ArrowUp");
-            velocity.x = 0;
-            velocity.y = 1;
+            gameOver = false;
+            if (velocity.y != -1) {
+              velocity.x = 0;
+              velocity.y = 1;
+            }
         }                                                                 
     }
     /* reset values */
