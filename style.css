@@ -1,0 +1,49 @@
+body {
+    padding: 0%;
+    margin: 0%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #121212;
+}
+
+#game-board {
+    background: #202020;
+    border-radius: 30px;
+    width: 80vh;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+}
+
+.snake-part {
+    background-color: #54db42;
+    border-radius: 50%;
+    margin: 1px;
+    /* box-shadow: 0rem 0rem 2rem 0.1rem #1eff00; */
+}
+
+.snake-head {
+    background: #fcf700;
+    margin: 1px;
+    /* box-shadow: 0rem 0rem 2rem 0.1rem #fffb00; */
+    border-radius: 50%;
+}
+
+.food {
+    background: url('assets/apple-1699633.svg');
+}
+
+.game-over {
+    background: #fc5000;
+}
+
+@media (max-width: 550px) {
+    #game-board {
+        width: 90vw;
+        height: 90vw;
+    }
+}

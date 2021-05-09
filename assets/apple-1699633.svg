@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:inkpad="http://taptrix.com/inkpad/svg_extensions">
+ <rect width="500" height="500" fill-opacity="0"/>
+ <g transform="matrix(.70291 0 0 .70291 68.695 72.152)" inkpad:layerName="Layer 1">
+  <path d="m243.62 167.84s4.296-84.479 21.478-113.12c17.182-28.637 37.228-32.932 37.228-32.932" fill="none" stroke="#5d7d4d" stroke-linecap="round" stroke-linejoin="round" stroke-width="26.028"/>
+  <path d="m51.233 275.52c0-62.95 23.972-119.94 62.73-161.19 38.757-41.253 80.069-16.457 139.21-16.457s109.97-20.592 148.73 20.661c38.758 41.253 62.73 98.243 62.73 161.19s-23.972 119.94-62.73 161.19c-38.757 41.253-89.589 35.741-148.73 35.741s-100.45 1.308-139.21-39.945c-38.758-41.253-62.73-98.243-62.73-161.19z" fill="#f56356"/>
+  <path d="m100.43 229.41s7.159-77.32 73.024-97.366" fill="none" stroke="#f5ffff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".40773" stroke-width="41.67"/>
+ </g>
+</svg>
