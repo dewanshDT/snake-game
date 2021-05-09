@@ -6,6 +6,9 @@ let food = { x: 7, y: 5 };
 let velocity = { x: 0, y: 0 };
 let gameOver = false;
 let lastDrawTime = 0;
+const foodSound = new Audio('assets/food.mp3');
+const moveSound = new Audio('assets/move.mp3');
+const collideSound = new Audio('assets/gameover.mp3');
 
 function main(ctime) {
   window.requestAnimationFrame(main);
@@ -18,6 +21,7 @@ function main(ctime) {
 
 function drawGame() {
   if (isCollide(snakeArr)) {
+    collideSound.play();
     gameOver = true;
     speed = 5;
     velocity = { x: 0, y: 0 };
@@ -25,6 +29,7 @@ function drawGame() {
   }
 
   if (hasEaten()) {
+    foodSound.play();
     snakeArr.unshift({
       x: snakeArr[0].x + velocity.x,
       y: snakeArr[0].y + velocity.y,
@@ -113,6 +118,7 @@ function hasEaten() {
 }
 
 document.addEventListener("keydown", (e) => {
+  moveSound.play();
   if (gameOver === true) {
     velocity.y = -1;
     gameOver = false;
@@ -179,6 +185,7 @@ function handleTouchMove(evt) {
 
   if (Math.abs(xDiff) > Math.abs(yDiff)) {
     /*most significant*/
+    moveSound.play();
     if (xDiff > 0) {
       /* left swipe */
       gameOver = false;
