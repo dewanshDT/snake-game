@@ -213,7 +213,6 @@ function handleTouchMove(evt) {
       }
     }
   } else {
-    moveSound.play();
     if (yDiff > 0) {
       /* up swipe */
       gameOver = false;
