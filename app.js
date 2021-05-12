@@ -8,11 +8,6 @@ let velocity = { x: 0, y: 0 };
 let gameOver = false;
 let lastDrawTime = 0;
 let score = 0;
-let foodSound;
-let moveSound;
-let collideSound;
-
-await loadSound();
 
 function main(ctime) {
   window.requestAnimationFrame(main);
@@ -23,11 +18,28 @@ function main(ctime) {
   drawGame();
 }
 
-async function loadSound() {
-  foodSound = new Audio("assets/food.mp3");
-  moveSound = new Audio("assets/move.mp3");
-  collideSound = new Audio("assets/gameover.mp3");
+class Sound {
+  constructor(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+  }
+
+  play() {
+    this.sound.play();
+  }
+
+  stop() {
+    this.sound.pause();
+  }
 }
+
+const foodSound = new Sound("assets/food.mp3");
+const moveSound = new Sound("assets/move.mp3");
+const collideSound = new Sound("assets/gameover.mp3");
 
 function drawGame() {
   if (isCollide(snakeArr)) {
@@ -206,16 +218,16 @@ function handleTouchMove(evt) {
     /*most significant*/
     if (xDiff > 0) {
       /* left swipe */
-    moveSound.play();
-    gameOver = false;
+      moveSound.play();
+      gameOver = false;
       if (velocity.x != 1) {
         velocity.x = -1;
         velocity.y = 0;
       }
     } else {
       /* right swipe */
-    moveSound.play();
-    gameOver = false;
+      moveSound.play();
+      gameOver = false;
       if (velocity.x != -1) {
         velocity.x = 1;
         velocity.y = 0;
@@ -224,16 +236,16 @@ function handleTouchMove(evt) {
   } else {
     if (yDiff > 0) {
       /* up swipe */
-    moveSound.play();
-    gameOver = false;
+      moveSound.play();
+      gameOver = false;
       if (velocity.y != 1) {
         velocity.x = 0;
         velocity.y = -1;
       }
     } else {
       /* down swipe */
-    moveSound.play();
-    gameOver = false;
+      moveSound.play();
+      gameOver = false;
       if (velocity.y != -1) {
         velocity.x = 0;
         velocity.y = 1;
