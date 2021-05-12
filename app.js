@@ -12,7 +12,7 @@ let foodSound;
 let moveSound;
 let collideSound;
 
-loadSound();
+await loadSound();
 
 function main(ctime) {
   window.requestAnimationFrame(main);
@@ -23,7 +23,7 @@ function main(ctime) {
   drawGame();
 }
 
-function loadSound() {
+async function loadSound() {
   foodSound = new Audio("assets/food.mp3");
   moveSound = new Audio("assets/move.mp3");
   collideSound = new Audio("assets/gameover.mp3");
