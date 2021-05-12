@@ -8,9 +8,11 @@ let velocity = { x: 0, y: 0 };
 let gameOver = false;
 let lastDrawTime = 0;
 let score = 0;
-const foodSound = new Audio("assets/food.mp3");
-const moveSound = new Audio("assets/move.mp3");
-const collideSound = new Audio("assets/gameover.mp3");
+let foodSound;
+let moveSound;
+let collideSound;
+
+loadSound();
 
 function main(ctime) {
   window.requestAnimationFrame(main);
@@ -19,6 +21,12 @@ function main(ctime) {
   }
   lastDrawTime = ctime;
   drawGame();
+}
+
+function loadSound() {
+  foodSound = new Audio("assets/food.mp3");
+  moveSound = new Audio("assets/move.mp3");
+  collideSound = new Audio("assets/gameover.mp3");
 }
 
 function drawGame() {
