@@ -196,17 +196,18 @@ function handleTouchMove(evt) {
 
   if (Math.abs(xDiff) > Math.abs(yDiff)) {
     /*most significant*/
-    moveSound.play();
     if (xDiff > 0) {
       /* left swipe */
-      gameOver = false;
+    moveSound.play();
+    gameOver = false;
       if (velocity.x != 1) {
         velocity.x = -1;
         velocity.y = 0;
       }
     } else {
       /* right swipe */
-      gameOver = false;
+    moveSound.play();
+    gameOver = false;
       if (velocity.x != -1) {
         velocity.x = 1;
         velocity.y = 0;
@@ -215,14 +216,16 @@ function handleTouchMove(evt) {
   } else {
     if (yDiff > 0) {
       /* up swipe */
-      gameOver = false;
+    moveSound.play();
+    gameOver = false;
       if (velocity.y != 1) {
         velocity.x = 0;
         velocity.y = -1;
       }
     } else {
       /* down swipe */
-      gameOver = false;
+    moveSound.play();
+    gameOver = false;
       if (velocity.y != -1) {
         velocity.x = 0;
         velocity.y = 1;
